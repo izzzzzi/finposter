@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title>{{ title }} - Finposter</title>
+    {% else %}
+    <title>Главная - Finposter</title>
+    {% endif %}
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+</head>
+<body>
+<div id="overlay"></div>
+<main id="main">
+    {% block header %}
+    <header class="header">
+        <div class="header__top">
+            <div class="main-container flex-wrap">
+                <div class="col-auto"><a class="header__logo" href="{{ url_for('index') }}">
+                    <!--span.header__logo-img-->
+                    <!--span.header__logo-text Finposter--></a></div>
+                <div class="col-auto ml-auto">
+                    <ul class="header__nav">
+                        <li class="header__nav-item"><a class="header__nav-link" href="">Лучшие курсы</a></li>
+                        <li class="header__nav-item"><a class="header__nav-link" href="">Криптовалюты</a></li>
+                        <li class="header__nav-item"><a class="header__nav-link" href="{{ url_for('news') }}">Новости</a></li>
+                        <li class="header__nav-item"><a class="header__nav-link" href="">Отделения и банкоматы</a></li>
+                        <li class="header__nav-item"><a class="header__nav-link" href="">Контакты</a></li>
+                    </ul>
+                    <ul class="header__lang">
+                        <li class="header__lang-item"><a class="header__lang-link" href="">UA</a></li>
+                        <li class="header__lang-item"><a class="header__lang-link" href="">RU</a></li>
+                    </ul>
+                    <a class="btn-menu" href=""><span></span><span></span><span></span></a>
+                    <div class="header__search">
+                        <button class="header__search-btn"><i class="icon-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__cont"><a class="header__menu-close" href=""><i class="icon-close"></i></a>
+            <div class="main-container">
+                <ul class="header__nav">
+                    <li class="header__nav-item"><a class="header__nav-link" href="">Лучшие курсы</a></li>
+                    <li class="header__nav-item"><a class="header__nav-link" href="">Криптовалюты</a></li>
+                    <li class="header__nav-item"><a class="header__nav-link" href="{{ url_for('news') }}">Новости</a></li>
+                    <li class="header__nav-item"><a class="header__nav-link" href="">Отделения и банкоматы</a></li>
+                    <li class="header__nav-item"><a class="header__nav-link" href="">Контакты</a></li>
+                </ul>
+                <ul class="header-menu">
+                    <li class="header-menu__item"><a class="header-menu__link" href="" data-drop="#menu-drop-credit">КРЕДИТЫ<i
+                            class="icon-angle-down header-menu__link--icon"></i></a></li>
+                    <li class="header-menu__item"><a class="header-menu__link" href="" data-drop="#menu-drop-loan">ЗАЙМЫ<i
+                            class="icon-angle-down header-menu__link--icon"></i></a></li>
+                    <li class="header-menu__item"><a class="header-menu__link" href="" data-drop="#menu-drop-cards">КАРТЫ<i
+                            class="icon-angle-down header-menu__link--icon"></i></a></li>
+                    <li class="header-menu__item"><a class="header-menu__link" href="" data-drop="#menu-drop-banks">БАНКИ<i
+                            class="icon-angle-down header-menu__link--icon"></i></a></li>
+                    <li class="header-menu__item"><a class="header-menu__link" href=""
+                                                     data-drop="#menu-drop-exchange-rates">КУРСЫ ВАЛЮТ<i
+                            class="icon-angle-down header-menu__link--icon"></i></a></li>
+                    <li class="header-menu__item"><a class="header-menu__link" href="" data-drop="#menu-drop-useful">ЕЩЕ<i
+                            class="icon-angle-down header-menu__link--icon"></i></a></li>
+                </ul>
+                <!--.check-fines-->
+                <!--	div-->
+                <!--		a(href="").btn.btn--green.btn--small Проверить штрафы-->
+            </div>
+            <div class="menu-drop" id="menu-drop-loan"><a class="menu-drop__back" href=""><i
+                    class="icon-angle-left"></i> Назад</a>
+                <div class="main-container">
+                    <div class="menu-drop__inner">
+                        <div class="menu-drop__head">
+                            <div class="menu-drop__name">ЗАЙМЫ</div>
+                            <p class="menu-drop__p-info">Более 40 займов от 100 МФО</p>
+                        </div>
+                        <div class="col-1-2 menu-drop__item">
+                            <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                              src="{{ url_for('static',filename='img/icons/loan.svg') }}"
+                                                              alt=""> Микрозаймы</h3>
+                            <ul class="menu-drop__list">
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link"
+                                                                    href="{{ url_for('loans') }}">Беспроцентный</a></li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">Без справок</a>
+                                </li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">Наличными</a>
+                                </li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">В банке</a>
+                                </li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">На карту</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-1-2 menu-drop__item">
+                            <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                              src="{{ url_for('static',filename='img/icons/bank.svg') }}"
+                                                              alt=""> МФО</h3>
+                            <ul class="menu-drop__list">
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">Moneyveo</a>
+                                </li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">ШвидкоГрошi</a>
+                                </li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">Ссloan</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-drop" id="menu-drop-credit"><a class="menu-drop__back" href=""><i
+                    class="icon-angle-left"></i> Назад</a>
+                <div class="main-container">
+                    <div class="menu-drop__inner">
+                        <div class="menu-drop__head">
+                            <div class="menu-drop__name">КРЕДИТЫ</div>
+                            <p class="menu-drop__p-info">Более 126 кредитов в 30 банках Украины</p>
+                        </div>
+                        <div class="col-1-2 menu-drop__item">
+                            <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                              src="{{ url_for('static',filename='img/icons/money.svg') }}"
+                                                              alt=""> Потребительский</h3>
+                            <ul class="menu-drop__list">
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">подбоп
+                                    кредита</a></li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">без
+                                    поручителей</a></li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">наличными</a>
+                                </li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">без справок</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-1-2 menu-drop__item">
+                            <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                              src="{{ url_for('static',filename='img/icons/bank.svg') }}"
+                                                              alt=""> Банки</h3>
+                            <ul class="menu-drop__list">
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">подбоп
+                                    кредита</a></li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">без
+                                    поручителей</a></li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">наличными</a>
+                                </li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">без справок</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-drop" id="menu-drop-cards"><a class="menu-drop__back" href=""><i
+                    class="icon-angle-left"></i> Назад</a>
+                <div class="main-container">
+                    <div class="menu-drop__inner">
+                        <div class="menu-drop__head">
+                            <div class="menu-drop__name">КАРТЫ</div>
+                            <p class="menu-drop__p-info">Более 150 карт от 30 банков</p>
+                        </div>
+                        <div class="col-1-2 menu-drop__item">
+                            <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                              src="{{ url_for('static',filename='img/icons/credit-card.svg') }}"
+                                                              alt=""> Кредитные карты</h3>
+                            <ul class="menu-drop__list">
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit_cards') }}">кэшбек</a></li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit_cards') }}">бонусы</a></li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit_cards') }}">процент на
+                                    остаток</a></li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit_cards') }}">снятие наличных
+                                    без процентов</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-1-2 menu-drop__item">
+                            <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                              src="{{ url_for('static',filename='img/icons/debit-card.svg') }}"
+                                                              alt=""> Дебетовые карты</h3>
+                            <ul class="menu-drop__list">
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('debit_cards') }}">кэшбек</a></li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('debit_cards') }}">бесплатные</a>
+                                </li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('debit_cards') }}">процент на
+                                    остаток</a></li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('debit_cards') }}">visa</a></li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('debit_cards') }}">mastercard</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-drop" id="menu-drop-banks"><a class="menu-drop__back" href=""><i
+                    class="icon-angle-left"></i> Назад</a>
+                <div class="main-container">
+                    <div class="menu-drop__inner">
+                        <div class="menu-drop__head">
+                            <div class="menu-drop__name">КАРТЫ</div>
+                            <p class="menu-drop__p-info">Более 150 карт от 30 банков</p>
+                        </div>
+                        <div class="col-1-3 menu-drop__item">
+                            <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                              src="{{ url_for('static',filename='img/icons/bank.svg') }}"
+                                                              alt=""> Лучшее Банки</h3>
+                            <ul class="menu-drop__list">
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Приват Банк</a>
+                                </li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Альфа Банк</a>
+                                </li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">OTP Банк</a>
+                                </li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Райфайзен
+                                    Банк</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-1-3 menu-drop__item">
+                            <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                              src="{{ url_for('static',filename='img/icons/place.svg') }}"
+                                                              alt=""> Адреса Банков</h3>
+                            <ul class="menu-drop__list">
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Отделения</a>
+                                </li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Банкоматы и
+                                    терминалы</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-1-3 menu-drop__item"><a class="menu-drop__title" href=""><img
+                                class="menu-drop__title-img"
+                                src="{{ url_for('static',filename='img/icons/chart.svg') }}" alt=""> Рейтинг Банков</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-drop" id="menu-drop-exchange-rates"><a class="menu-drop__back" href=""><i
+                    class="icon-angle-left"></i> Назад</a>
+                <div class="main-container">
+                    <div class="menu-drop__inner">
+                        <div class="menu-drop__head">
+                            <div class="menu-drop__name">КУРСЫ ВАЛЮТ</div>
+                            <p class="menu-drop__p-info">Самые свежие курсы валют</p>
+                        </div>
+                        <div class="col-1-2 menu-drop__item">
+                            <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                              src="{{ url_for('static',filename='img/icons/exchange-rate.svg') }}"
+                                                              alt=""> Лучшие курсы</h3>
+                            <ul class="menu-drop__list">
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('currency_rates') }}">Курсы валют</a>
+                                </li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Курсы НБУ</a>
+                                </li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Курс доллара
+                                    USD</a></li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Курс евро
+                                    EUR</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-1-2 menu-drop__item">
+                            <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                              src="{{ url_for('static',filename='img/icons/cryptocurrency.svg') }}"
+                                                              alt=""> Криптовалюта</h3>
+                            <ul class="menu-drop__list">
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Курс
+                                    Bitcoin</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-drop" id="menu-drop-useful"><a class="menu-drop__back" href=""><i
+                    class="icon-angle-left"></i> Назад</a>
+                <div class="main-container">
+                    <div class="menu-drop__inner">
+                        <div class="menu-drop__head">
+                            <div class="menu-drop__name">ПОЛЕЗНОЕ</div>
+                            <p class="menu-drop__p-info">Новости, калькуляторы аналитика</p>
+                        </div>
+                        <div class="col-1-2 menu-drop__item">
+                            <h3 class="menu-drop__title"><i class="icon-lamp"></i> Статьи и новости</h3>
+                            <ul class="menu-drop__list">
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Новости</a>
+                                </li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Вопросы и
+                                    ответы</a></li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Отзывы о
+                                    банках</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-1-2 menu-drop__item">
+                            <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                              src="{{ url_for('static',filename='img/icons/bank.svg') }}"
+                                                              alt=""> Услуги</h3>
+                            <ul class="menu-drop__list">
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Перевод с карты
+                                    на карту</a></li>
+                                <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Калькулятор</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endblock %}
+    <div class="search-cont">
+        <div class="main-container">
+            <div class="search-cont__inner"><a class="search-cont__close" href=""><i class="icon-close"></i></a><i
+                    class="icon-search"></i>
+                <input class="search-cont__input" type="text" placeholder="Поиск по сайту...">
+            </div>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+    <div class="feedback">
+        <div class="main-container">
+            <h3 class="feedback__title">Подписывайтесь на нашу рассылку</h3>
+            <h4 class="feedback__sub-title">Будьте в курсе последних новостей!</h4>
+            <div class="feedback__form">
+                <input class="feedback__input" type="email" placeholder="Email *"><a
+                    class="btn btn--green feedback__form-btn" href="">Подписаться</a>
+            </div>
+        </div>
+    </div>
+    {% block maincontainer %}
+    {% endblock %}
+    <footer class="footer">
+        <div class="main-container">
+            <div class="footer__row">
+                <div class="footer__item">
+                    <div class="footer__item-header">
+                        <h3 class="footer__item-title">Популярные банковские продукты</h3>
+                        <div class="footer__item-icon"><i class="icon-angle-down"></i></div>
+                    </div>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a class="footer__list-link" href="{{ url_for('credit_cards') }}">Кредитные карты</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="{{ url_for('credit_cards') }}">Кредитные карты</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="{{ url_for('credit_cards') }}">Кредитные карты</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="{{ url_for('credit_cards') }}">Кредитные карты</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="{{ url_for('credit_cards') }}">Кредитные карты</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="{{ url_for('credit_cards') }}">Кредитные карты</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="{{ url_for('credit_cards') }}">Кредитные карты</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="{{ url_for('credit_cards') }}">Кредитные карты</a></li>
+                    </ul>
+                </div>
+                <div class="footer__item">
+                    <div class="footer__item-header">
+                        <h3 class="footer__item-title">Популярные банки</h3>
+                        <div class="footer__item-icon"><i class="icon-angle-down"></i></div>
+                    </div>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a class="footer__list-link" href="">ПриватБанка</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="">ПриватБанка</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="">ПриватБанка</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="">ПриватБанка</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="">ПриватБанка</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="">ПриватБанка</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="">ПриватБанка</a></li>
+                    </ul>
+                </div>
+                <div class="footer__item">
+                    <div class="footer__item-header">
+                        <h3 class="footer__item-title">Калькуляторы</h3>
+                        <div class="footer__item-icon"><i class="icon-angle-down"></i></div>
+                    </div>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a class="footer__list-link" href="">Колькулятор кредитов</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="">Колькулятор кредитов</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="">Колькулятор кредитов</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="">Колькулятор кредитов</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="">Колькулятор кредитов</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="">Колькулятор кредитов</a></li>
+                    </ul>
+                </div>
+                <div class="footer__item">
+                    <div class="footer__item-header">
+                        <h3 class="footer__item-title">Популярно</h3>
+                        <div class="footer__item-icon"><i class="icon-angle-down"></i></div>
+                    </div>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a class="footer__list-link" href="">Колькулятор кредитов</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="">Колькулятор кредитов</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="">Колькулятор кредитов</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="">Колькулятор кредитов</a></li>
+                        <li class="footer__list-item"><a class="footer__list-link" href="">Колькулятор кредитов</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer__cont">
+            <div class="main-container">
+                <div class="flex-wrap">
+                    <div class="col-auto"><a class="footer__logo" href="{{ url_for('index') }}"></a></div>
+                    <div class="col-auto ml-auto">
+                        <div class="footer__social-label">Оставайтесь с нами:</div>
+                        <ul class="social">
+                            <li class="social__item"><a class="social__link" href=""><img class="social__img"
+                                                                                          src="{{ url_for('static', filename='img/youtube.svg') }}"
+                                                                                          alt=""></a></li>
+                            <li class="social__item"><a class="social__link" href=""><img class="social__img"
+                                                                                          src="{{ url_for('static', filename='img/facebook.svg') }}"
+                                                                                          alt=""></a></li>
+                            <li class="social__item"><a class="social__link" href=""><img class="social__img"
+                                                                                          src="{{ url_for('static', filename='img/telegram.svg') }}"
+                                                                                          alt=""></a></li>
+                            <li class="social__item"><a class="social__link" href=""><img class="social__img"
+                                                                                          src="{{ url_for('static', filename='img/twitter.svg') }}"
+                                                                                          alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="main-container">
+                <ul class="footer__nav">
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="">О нас</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="">Реклама</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="">Контакты</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="{{ url_for('terms_of_use') }}">Условия использования</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="{{ url_for('privacy_policy') }}">Политика
+                        конфиденциальности</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</main>
+<script src="{{ url_for('static',filename='js/app.js') }}"></script>
+</body>
+</html>

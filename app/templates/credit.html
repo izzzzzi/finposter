@@ -1,0 +1,958 @@
+{% extends "base.html" %}
+
+{% block header %}
+<header class="header">
+    <div class="header__top">
+        <div class="main-container flex-wrap">
+            <div class="col-auto"><a class="header__logo" href="{{ url_for('index') }}">
+                <!--span.header__logo-img-->
+                <!--span.header__logo-text Finposter--></a></div>
+            <div class="col-auto ml-auto">
+                <ul class="header__nav">
+                    <li class="header__nav-item"><a class="header__nav-link" href="">Лучшие курсы</a></li>
+                    <li class="header__nav-item"><a class="header__nav-link" href="">Криптовалюты</a></li>
+                    <li class="header__nav-item"><a class="header__nav-link" href="{{ url_for('news') }}">Новости</a></li>
+                    <li class="header__nav-item"><a class="header__nav-link" href="">Отделения и банкоматы</a></li>
+                    <li class="header__nav-item"><a class="header__nav-link" href="">Контакты</a></li>
+                </ul>
+                <ul class="header__lang">
+                    <li class="header__lang-item"><a class="header__lang-link" href="">UA</a></li>
+                    <li class="header__lang-item"><a class="header__lang-link" href="">RU</a></li>
+                </ul>
+                <a class="btn-menu" href=""><span></span><span></span><span></span></a>
+                <div class="header__search">
+                    <button class="header__search-btn"><i class="icon-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="currency">
+        <div class="main-container">
+            <div class="currency__cont">
+                <div class="currency__item">
+                    <div class="currency__head">
+                        <h3 class="currency__name"><a href="{{ url_for('currency_rates') }}">Курсы валют</a></h3>
+                        <p class="currency__date">на 28.04.2020</p>
+                    </div>
+                    <div class="currency__inner">
+                        <table class="currency-s-table">
+                            <tr>
+                                <td>
+                                    <div class="currency-s-table__name">USD<span>НБУ</span></div>
+                                </td>
+                                <td>28.20 / 28.75</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="currency-s-table__name">EUR<span>НБУ</span></div>
+                                </td>
+                                <td>31.25 / 31.05</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="currency__item">
+                    <div class="currency__head">
+                        <h3 class="currency__name"><a href="">Курсы криптовалют</a></h3>
+                        <p class="currency__date">на 28.04.2020</p>
+                    </div>
+                    <div class="currency__inner">
+                        <table class="currency-s-table">
+                            <tr>
+                                <td>
+                                    <div class="currency-s-table__name">Bitcoin</div>
+                                </td>
+                                <td><i class="icon-arrow-up"></i> 7547.04</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="currency-s-table__name">Etherium</div>
+                                </td>
+                                <td><i class="icon-arrow-down"></i> 127.04</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="currency__item">
+                    <div class="currency__head">
+                        <h3 class="currency__name"><a href="">Курс нефти</a></h3>
+                        <p class="currency__date">на 28.04.2020</p>
+                    </div>
+                    <div class="currency__inner">
+                        <table class="currency-s-table">
+                            <tr>
+                                <td>
+                                    <div class="currency-s-table__name">Brent</div>
+                                </td>
+                                <td>19.99</td>
+                                <td class="currency-s-table__down">-8,68%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="currency-s-table__name">Золото</div>
+                                </td>
+                                <td>1435.34</td>
+                                <td class="currency-s-table__up">+0,87%</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header__cont"><a class="header__menu-close" href=""><i class="icon-close"></i></a>
+        <div class="main-container">
+            <ul class="header__nav">
+                <li class="header__nav-item"><a class="header__nav-link" href="">Лучшие курсы</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="">Криптовалюты</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="{{ url_for('news') }}">Новости</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="">Отделения и банкоматы</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="">Контакты</a></li>
+            </ul>
+            <ul class="header-menu">
+                <li class="header-menu__item"><a class="header-menu__link" href="" data-drop="#menu-drop-credit">КРЕДИТЫ<i
+                        class="icon-angle-down header-menu__link--icon"></i></a></li>
+                <li class="header-menu__item"><a class="header-menu__link" href="" data-drop="#menu-drop-loan">ЗАЙМЫ<i
+                        class="icon-angle-down header-menu__link--icon"></i></a></li>
+                <li class="header-menu__item"><a class="header-menu__link" href="" data-drop="#menu-drop-cards">КАРТЫ<i
+                        class="icon-angle-down header-menu__link--icon"></i></a></li>
+                <li class="header-menu__item"><a class="header-menu__link" href="" data-drop="#menu-drop-banks">БАНКИ<i
+                        class="icon-angle-down header-menu__link--icon"></i></a></li>
+                <li class="header-menu__item"><a class="header-menu__link" href=""
+                                                 data-drop="#menu-drop-exchange-rates">КУРСЫ ВАЛЮТ<i
+                        class="icon-angle-down header-menu__link--icon"></i></a></li>
+                <li class="header-menu__item"><a class="header-menu__link" href="" data-drop="#menu-drop-useful">ЕЩЕ<i
+                        class="icon-angle-down header-menu__link--icon"></i></a></li>
+            </ul>
+        </div>
+        <div class="menu-drop" id="menu-drop-loan"><a class="menu-drop__back" href=""><i class="icon-angle-left"></i>
+            Назад</a>
+            <div class="main-container">
+                <div class="menu-drop__inner">
+                    <div class="menu-drop__head">
+                        <div class="menu-drop__name">ЗАЙМЫ</div>
+                        <p class="menu-drop__p-info">Более 40 займов от 100 МФО</p>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/loan.svg')}}"
+                                                          alt="">
+                            Микрозаймы</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">Беспроцентный</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">Без справок</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">Наличными</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">В банке</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">На карту</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/bank.svg')}}"
+                                                          alt="">
+                            МФО</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">Moneyveo</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">ШвидкоГрошi</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">Ссloan</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-drop" id="menu-drop-credit"><a class="menu-drop__back" href=""><i class="icon-angle-left"></i>
+            Назад</a>
+            <div class="main-container">
+                <div class="menu-drop__inner">
+                    <div class="menu-drop__head">
+                        <div class="menu-drop__name">КРЕДИТЫ</div>
+                        <p class="menu-drop__p-info">Более 126 кредитов в 30 банках Украины</p>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/money.svg')}}"
+                                                          alt="">
+                            Потребительский</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">подбоп кредита</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">без поручителей</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">наличными</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">без справок</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/bank.svg')}}"
+                                                          alt="">
+                            Банки</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">подбоп кредита</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">без поручителей</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">наличными</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">без справок</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-drop" id="menu-drop-cards"><a class="menu-drop__back" href=""><i class="icon-angle-left"></i>
+            Назад</a>
+            <div class="main-container">
+                <div class="menu-drop__inner">
+                    <div class="menu-drop__head">
+                        <div class="menu-drop__name">КАРТЫ</div>
+                        <p class="menu-drop__p-info">Более 150 карт от 30 банков</p>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/credit-card.svg')}}"
+                                                          alt=""> Кредитные карты</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit_cards') }}">кэшбек</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit_cards') }}">бонусы</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit_cards') }}">процент на
+                                остаток</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit_cards') }}">снятие наличных без
+                                процентов</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/debit-card.svg')}}"
+                                                          alt=""> Дебетовые карты</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('debit_cards') }}">кэшбек</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('debit_cards') }}">бесплатные</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('debit_cards') }}">процент на
+                                остаток</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('debit_cards') }}">visa</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('debit_cards') }}">mastercard</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-drop" id="menu-drop-banks"><a class="menu-drop__back" href=""><i class="icon-angle-left"></i>
+            Назад</a>
+            <div class="main-container">
+                <div class="menu-drop__inner">
+                    <div class="menu-drop__head">
+                        <div class="menu-drop__name">КАРТЫ</div>
+                        <p class="menu-drop__p-info">Более 150 карт от 30 банков</p>
+                    </div>
+                    <div class="col-1-3 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/bank.svg')}}"
+                                                          alt="">
+                            Лучшее Банки</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Приват Банк</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Альфа Банк</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">OTP Банк</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Райфайзен Банк</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-1-3 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/place.svg')}}"
+                                                          alt="">
+                            Адреса Банков</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Отделения</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Банкоматы и
+                                терминалы</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-1-3 menu-drop__item"><a class="menu-drop__title" href=""><img
+                            class="menu-drop__title-img" src="{{ url_for('static',filename='img/icons/chart.svg')}}"
+                            alt=""> Рейтинг Банков</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-drop" id="menu-drop-exchange-rates"><a class="menu-drop__back" href=""><i
+                class="icon-angle-left"></i> Назад</a>
+            <div class="main-container">
+                <div class="menu-drop__inner">
+                    <div class="menu-drop__head">
+                        <div class="menu-drop__name">КУРСЫ ВАЛЮТ</div>
+                        <p class="menu-drop__p-info">Самые свежие курсы валют</p>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/exchange-rate.svg')}}"
+                                                          alt=""> Лучшие курсы</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('currency_rates') }}">Курсы валют</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Курсы НБУ</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Курс доллара
+                                USD</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Курс евро EUR</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/cryptocurrency.svg')}}"
+                                                          alt=""> Криптовалюта</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Курс Bitcoin</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-drop" id="menu-drop-useful"><a class="menu-drop__back" href=""><i class="icon-angle-left"></i>
+            Назад</a>
+            <div class="main-container">
+                <div class="menu-drop__inner">
+                    <div class="menu-drop__head">
+                        <div class="menu-drop__name">ПОЛЕЗНОЕ</div>
+                        <p class="menu-drop__p-info">Новости, калькуляторы аналитика</p>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><i class="icon-lamp"></i> Статьи и новости</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('news') }}">Новости</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Вопросы и
+                                ответы</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Отзывы о банках</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/bank.svg')}}"
+                                                          alt="">
+                            Услуги</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Перевод с карты на
+                                карту</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Калькулятор</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="page-welcome">
+        <div class="main-container">
+          <ul class="breadcrumbs">
+            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="{{ url_for('index') }}">Главная</a></li>
+            <li class="breadcrumbs__item breadcrumbs__item--line">/</li>
+            <li class="breadcrumbs__item">Кредиты</li>
+          </ul>
+          <h1 class="main-title">Кредиты в<span> Украине</span></h1>
+          <div class="page-welcome__info">Денежные займы 2020 года от МФО Украине - их сроки, проценты в день, способы выдачи и получения<br> Изучите список микрозаймов и оформите заявку на подходящий вариант.</div>
+        </div>
+      </div>
+      <div class="filter">
+        <div class="main-container">
+          <div class="filter__row">
+            <div class="filter__item">
+              <input class="filter__input" type="text" placeholder="Введите нужную  сумму">
+              <div class="filter-slider" id="filter-amount"></div>
+            </div>
+            <div class="filter__item filter__item--time">
+              <input class="filter__input" type="text" placeholder="От 1 до 90">
+              <div class="filter-slider" id="filter-time"></div>
+              <div class="filter__select">
+                <select class="select-styler">
+                  <option>Дней</option>
+                  <option>Недель</option>
+                  <option>Месяцов</option>
+                </select>
+              </div>
+            </div>
+            <div class="filter__submit"><a class="btn btn--green" href="">Показать результат</a></div>
+          </div>
+          <ul class="filter__nav">
+            <li class="filter__nav-item">
+              <label class="checkbox-s">
+                <div class="checkbox-s__cont">
+                  <input class="checkbox-s__cont-input" type="checkbox" checked>
+                  <div class="checkbox-s__cont-inner"><i class="icon-check"></i></div>
+                </div>
+                <div class="checkbox-s__text">все</div>
+              </label>
+            </li>
+            <li class="filter__nav-item">
+              <label class="checkbox-s">
+                <div class="checkbox-s__cont">
+                  <input class="checkbox-s__cont-input" type="checkbox">
+                  <div class="checkbox-s__cont-inner"><i class="icon-check"></i></div>
+                </div>
+                <div class="checkbox-s__text">без справок</div>
+              </label>
+            </li>
+            <li class="filter__nav-item">
+              <label class="checkbox-s">
+                <div class="checkbox-s__cont">
+                  <input class="checkbox-s__cont-input" type="checkbox">
+                  <div class="checkbox-s__cont-inner"><i class="icon-check"></i></div>
+                </div>
+                <div class="checkbox-s__text">без поручителей</div>
+              </label>
+            </li>
+            <li class="filter__nav-item">
+              <label class="checkbox-s">
+                <div class="checkbox-s__cont">
+                  <input class="checkbox-s__cont-input" type="checkbox">
+                  <div class="checkbox-s__cont-inner"><i class="icon-check"></i></div>
+                </div>
+                <div class="checkbox-s__text">наличными</div>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="loans-inner">
+        <div class="main-container">
+          <div class="container-a">
+            <div class="container-a__cont">
+              <div class="title-group">
+                <h3 class="category-title"><span>Лучшие предложение месяца</span>
+                  <ul class="rating">
+                    <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                    <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                    <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                    <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                    <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                  </ul>
+                </h3>
+              </div>
+              <div class="loans-top">
+                <div class="loans-top__item"><span class="loans-top__label">ТОП ЗАЙМ</span>
+                  <div class="loans-top__col-img"><a class="loans-top__img-link" href=""><img class="loans-top__img" src="{{ url_for('static', filename='img/pic-31.png') }}" alt=""></a>
+                    <div class="loans-top__title-category">“Быстрый кредит”</div>
+                    <ul class="rating">
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                    </ul>
+                    <p class="rating--num">(4.75)</p>
+                  </div>
+                  <div class="loans-top__col-cont">
+                    <table class="loans-top__table">
+                      <tr>
+                        <th><i class="icon-persent"></i> Процентная ставка</th>
+                        <th><i class="icon-calculator"></i> Сумма кредита</th>
+                        <th><i class="icon-clock"></i> Срок</th>
+                      </tr>
+                      <tr>
+                        <td>9.16-13.52%</td>
+                        <td>до 50000 грн</td>
+                        <td>1-30 месяцев</td>
+                      </tr>
+                    </table>
+                    <div class="loans-top__btn-group"><a class="btn btn--green" href="">Оформить заявку</a><br><a class="link-to" href="">Подробнее</a></div>
+                  </div>
+                </div>
+                <div class="loans-top__item"><span class="loans-top__label">ТОП ЗАЙМ</span>
+                  <div class="loans-top__col-img"><a class="loans-top__img-link" href=""><img class="loans-top__img" src="img/pic-31.png" alt=""></a>
+                    <div class="loans-top__title-category">“Быстрый кредит”</div>
+                    <ul class="rating">
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                    </ul>
+                    <p class="rating--num">(4.75)</p>
+                  </div>
+                  <div class="loans-top__col-cont">
+                    <table class="loans-top__table">
+                      <tr>
+                        <th><i class="icon-persent"></i> Процентная ставка</th>
+                        <th><i class="icon-calculator"></i> Сумма кредита</th>
+                        <th><i class="icon-clock"></i> Срок</th>
+                      </tr>
+                      <tr>
+                        <td>9.16-13.52%</td>
+                        <td>до 50000 грн</td>
+                        <td>1-30 месяцев</td>
+                      </tr>
+                    </table>
+                    <div class="loans-top__btn-group"><a class="btn btn--green" href="">Оформить заявку</a><br><a class="link-to" href="">Подробнее</a></div>
+                  </div>
+                </div>
+                <div class="loans-top__item"><span class="loans-top__label">ТОП ЗАЙМ</span>
+                  <div class="loans-top__col-img"><a class="loans-top__img-link" href=""><img class="loans-top__img" src="img/pic-31.png" alt=""></a>
+                    <div class="loans-top__title-category">“Быстрый кредит”</div>
+                    <ul class="rating">
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                    </ul>
+                    <p class="rating--num">(4.75)</p>
+                  </div>
+                  <div class="loans-top__col-cont">
+                    <table class="loans-top__table">
+                      <tr>
+                        <th><i class="icon-persent"></i> Процентная ставка</th>
+                        <th><i class="icon-calculator"></i> Сумма кредита</th>
+                        <th><i class="icon-clock"></i> Срок</th>
+                      </tr>
+                      <tr>
+                        <td>9.16-13.52%</td>
+                        <td>до 50000 грн</td>
+                        <td>1-30 месяцев</td>
+                      </tr>
+                    </table>
+                    <div class="loans-top__btn-group"><a class="btn btn--green" href="">Оформить заявку</a><br><a class="link-to" href="">Подробнее</a></div>
+                  </div>
+                </div>
+              </div>
+              <h3 class="category-title">Все займы Украины</h3>
+              <div class="loans-top mb-0">
+                <div class="loans-top__item">
+                  <div class="loans-top__col-img"><a class="loans-top__img-link" href=""><img class="loans-top__img" src="img/pic-31.png" alt=""></a>
+                    <div class="loans-top__title-category">“Быстрый кредит”</div>
+                    <ul class="rating">
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                    </ul>
+                    <p class="rating--num">(4.75)</p>
+                  </div>
+                  <div class="loans-top__col-cont">
+                    <table class="loans-top__table">
+                      <tr>
+                        <th><i class="icon-persent"></i> Процентная ставка</th>
+                        <th><i class="icon-calculator"></i> Сумма кредита</th>
+                        <th><i class="icon-clock"></i> Срок</th>
+                      </tr>
+                      <tr>
+                        <td>9.16-13.52%</td>
+                        <td>до 50000 грн</td>
+                        <td>1-30 месяцев</td>
+                      </tr>
+                    </table>
+                    <div class="loans-top__btn-group"><a class="btn btn--green" href="">Оформить заявку</a><br><a class="link-to" href="">Подробнее</a></div>
+                  </div>
+                </div>
+                <div class="loans-top__item">
+                  <div class="loans-top__col-img"><a class="loans-top__img-link" href=""><img class="loans-top__img" src="img/pic-31.png" alt=""></a>
+                    <div class="loans-top__title-category">“Быстрый кредит”</div>
+                    <ul class="rating">
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                    </ul>
+                    <p class="rating--num">(4.75)</p>
+                  </div>
+                  <div class="loans-top__col-cont">
+                    <table class="loans-top__table">
+                      <tr>
+                        <th><i class="icon-persent"></i> Процентная ставка</th>
+                        <th><i class="icon-calculator"></i> Сумма кредита</th>
+                        <th><i class="icon-clock"></i> Срок</th>
+                      </tr>
+                      <tr>
+                        <td>9.16-13.52%</td>
+                        <td>до 50000 грн</td>
+                        <td>1-30 месяцев</td>
+                      </tr>
+                    </table>
+                    <div class="loans-top__btn-group"><a class="btn btn--green" href="">Оформить заявку</a><br><a class="link-to" href="">Подробнее</a></div>
+                  </div>
+                </div>
+                <div class="loans-top__item">
+                  <div class="loans-top__col-img"><a class="loans-top__img-link" href=""><img class="loans-top__img" src="img/pic-31.png" alt=""></a>
+                    <div class="loans-top__title-category">“Быстрый кредит”</div>
+                    <ul class="rating">
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                    </ul>
+                    <p class="rating--num">(4.75)</p>
+                  </div>
+                  <div class="loans-top__col-cont">
+                    <table class="loans-top__table">
+                      <tr>
+                        <th><i class="icon-persent"></i> Процентная ставка</th>
+                        <th><i class="icon-calculator"></i> Сумма кредита</th>
+                        <th><i class="icon-clock"></i> Срок</th>
+                      </tr>
+                      <tr>
+                        <td>9.16-13.52%</td>
+                        <td>до 50000 грн</td>
+                        <td>1-30 месяцев</td>
+                      </tr>
+                    </table>
+                    <div class="loans-top__btn-group"><a class="btn btn--green" href="">Оформить заявку</a><br><a class="link-to" href="">Подробнее</a></div>
+                  </div>
+                </div>
+                <div class="loans-top__item">
+                  <div class="loans-top__col-img"><a class="loans-top__img-link" href=""><img class="loans-top__img" src="img/pic-31.png" alt=""></a>
+                    <div class="loans-top__title-category">“Быстрый кредит”</div>
+                    <ul class="rating">
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                    </ul>
+                    <p class="rating--num">(4.75)</p>
+                  </div>
+                  <div class="loans-top__col-cont">
+                    <table class="loans-top__table">
+                      <tr>
+                        <th><i class="icon-persent"></i> Процентная ставка</th>
+                        <th><i class="icon-calculator"></i> Сумма кредита</th>
+                        <th><i class="icon-clock"></i> Срок</th>
+                      </tr>
+                      <tr>
+                        <td>9.16-13.52%</td>
+                        <td>до 50000 грн</td>
+                        <td>1-30 месяцев</td>
+                      </tr>
+                    </table>
+                    <div class="loans-top__btn-group"><a class="btn btn--green" href="">Оформить заявку</a><br><a class="link-to" href="">Подробнее</a></div>
+                  </div>
+                </div>
+                <div class="loans-top__item">
+                  <div class="loans-top__col-img"><a class="loans-top__img-link" href=""><img class="loans-top__img" src="img/pic-31.png" alt=""></a>
+                    <div class="loans-top__title-category">“Быстрый кредит”</div>
+                    <ul class="rating">
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                    </ul>
+                    <p class="rating--num">(4.75)</p>
+                  </div>
+                  <div class="loans-top__col-cont">
+                    <table class="loans-top__table">
+                      <tr>
+                        <th><i class="icon-persent"></i> Процентная ставка</th>
+                        <th><i class="icon-calculator"></i> Сумма кредита</th>
+                        <th><i class="icon-clock"></i> Срок</th>
+                      </tr>
+                      <tr>
+                        <td>9.16-13.52%</td>
+                        <td>до 50000 грн</td>
+                        <td>1-30 месяцев</td>
+                      </tr>
+                    </table>
+                    <div class="loans-top__btn-group"><a class="btn btn--green" href="">Оформить заявку</a><br><a class="link-to" href="">Подробнее</a></div>
+                  </div>
+                </div>
+                <div class="loans-top__item">
+                  <div class="loans-top__col-img"><a class="loans-top__img-link" href=""><img class="loans-top__img" src="img/pic-31.png" alt=""></a>
+                    <div class="loans-top__title-category">“Быстрый кредит”</div>
+                    <ul class="rating">
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                    </ul>
+                    <p class="rating--num">(4.75)</p>
+                  </div>
+                  <div class="loans-top__col-cont">
+                    <table class="loans-top__table">
+                      <tr>
+                        <th><i class="icon-persent"></i> Процентная ставка</th>
+                        <th><i class="icon-calculator"></i> Сумма кредита</th>
+                        <th><i class="icon-clock"></i> Срок</th>
+                      </tr>
+                      <tr>
+                        <td>9.16-13.52%</td>
+                        <td>до 50000 грн</td>
+                        <td>1-30 месяцев</td>
+                      </tr>
+                    </table>
+                    <div class="loans-top__btn-group"><a class="btn btn--green" href="">Оформить заявку</a><br><a class="link-to" href="">Подробнее</a></div>
+                  </div>
+                </div>
+                <div class="loans-top__item">
+                  <div class="loans-top__col-img"><a class="loans-top__img-link" href=""><img class="loans-top__img" src="img/pic-31.png" alt=""></a>
+                    <div class="loans-top__title-category">“Быстрый кредит”</div>
+                    <ul class="rating">
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                      <li class="rating__item"><i class="icon-star"></i></li>
+                    </ul>
+                    <p class="rating--num">(4.75)</p>
+                  </div>
+                  <div class="loans-top__col-cont">
+                    <table class="loans-top__table">
+                      <tr>
+                        <th><i class="icon-persent"></i> Процентная ставка</th>
+                        <th><i class="icon-calculator"></i> Сумма кредита</th>
+                        <th><i class="icon-clock"></i> Срок</th>
+                      </tr>
+                      <tr>
+                        <td>9.16-13.52%</td>
+                        <td>до 50000 грн</td>
+                        <td>1-30 месяцев</td>
+                      </tr>
+                    </table>
+                    <div class="loans-top__btn-group"><a class="btn btn--green" href="">Оформить заявку</a><br><a class="link-to" href="">Подробнее</a></div>
+                  </div>
+                </div>
+              </div>
+              <ul class="pagination">
+                <li class="pagination__item"><a class="pagination__link" href=""><i class="icon-angle-left"></i></a></li>
+                <li class="pagination__item"><a class="pagination__link pagination__link--active" href="">1</a></li>
+                <li class="pagination__item"><a class="pagination__link" href="">2</a></li>
+                <li class="pagination__item"><a class="pagination__link" href="">3</a></li>
+                <li class="pagination__item"><a class="pagination__link" href="">4</a></li>
+                <li class="pagination__item"><a class="pagination__link" href="">5</a></li>
+                <li class="pagination__item"><span class="pagination__item-dots">...</span></li>
+                <li class="pagination__item"><a class="pagination__link" href="">10</a></li>
+                <li class="pagination__item"><a class="pagination__link" href=""><i class="icon-angle-right"></i></a></li>
+              </ul>
+              <div class="comments">
+                <div class="comments__header">
+                  <div class="col-auto">
+                    <h3 class="comments__header-title">Отзывы о кредитах</h3>
+                  </div>
+                  <div class="col-auto ml-auto"><a class="btn btn--green btn--small" href="{{ url_for('comment') }}">Оставить отзыв</a></div>
+                </div>
+                <div class="comments-slider">
+                  <div class="comments-slider__item">
+                    <div class="comments-slider__header">
+                      <div class="col-auto">
+                        <div class="comments-slider__date"><i class="icon-clock"></i> 24.05.2020</div>
+                      </div>
+                      <div class="col-auto ml-auto">
+                        <div class="rating__num">3 из 5</div>
+                        <ul class="rating">
+                          <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                          <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                          <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                          <li class="rating__item"><i class="icon-star"></i></li>
+                          <li class="rating__item"><i class="icon-star"></i></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <h3 class="comments-slider__title">Доверяю этому банку</h3>
+                    <p>Доверяю этому банка впапыо ывпаор  вфыриорфыисв фывси ывафывс ммвп, вмиврамр чсссмм. Довмпвп раппарво.</p>
+                    <div class="comments-slider__footer">
+                      <ul class="comments-slider__info">
+                        <li class="comments-slider__info-item"><i class="icon-man"></i> Федор Коваленко</li>
+                        <li class="comments-slider__info-item"><i class="icon-place"></i> Киев</li>
+                        <li class="comments-slider__info-item"><i class="icon-bank"></i> Швидко Грошi</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="comments-slider__item">
+                    <div class="comments-slider__header">
+                      <div class="col-auto">
+                        <div class="comments-slider__date"><i class="icon-clock"></i> 24.05.2020</div>
+                      </div>
+                      <div class="col-auto ml-auto">
+                        <div class="rating__num">1 из 5</div>
+                        <ul class="rating">
+                          <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                          <li class="rating__item"><i class="icon-star"></i></li>
+                          <li class="rating__item"><i class="icon-star"></i></li>
+                          <li class="rating__item"><i class="icon-star"></i></li>
+                          <li class="rating__item"><i class="icon-star"></i></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <h3 class="comments-slider__title">Доверяю этому банку</h3>
+                    <p>Когда получен  заявке на кредит, остается прийти отделени чтобы предоставить оригиналы документов.</p>
+                    <p>Вы можете сразу перейти на официал банка, чтобы посмотреть, каким условиям должен соответствовать кредит ополучатель.</p>
+                    <div class="comments-slider__footer">
+                      <ul class="comments-slider__info">
+                        <li class="comments-slider__info-item"><i class="icon-man"></i> Федор Коваленко</li>
+                        <li class="comments-slider__info-item"><i class="icon-place"></i> Киев</li>
+                        <li class="comments-slider__info-item"><i class="icon-bank"></i> Швидко Грошi</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="comments-slider__item">
+                    <div class="comments-slider__header">
+                      <div class="col-auto">
+                        <div class="comments-slider__date"><i class="icon-clock"></i> 24.05.2020</div>
+                      </div>
+                      <div class="col-auto ml-auto">
+                        <div class="rating__num">3 из 5</div>
+                        <ul class="rating">
+                          <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                          <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                          <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                          <li class="rating__item"><i class="icon-star"></i></li>
+                          <li class="rating__item"><i class="icon-star"></i></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <h3 class="comments-slider__title">Доверяю этому банку</h3>
+                    <p>Доверяю этому банка впапыо ывпаор  вфыриорфыисв фывси ывафывс ммвп, вмиврамр чсссмм. Довмпвп раппарво.</p>
+                    <div class="comments-slider__footer">
+                      <ul class="comments-slider__info">
+                        <li class="comments-slider__info-item"><i class="icon-man"></i> Федор Коваленко</li>
+                        <li class="comments-slider__info-item"><i class="icon-place"></i> Киев</li>
+                        <li class="comments-slider__info-item"><i class="icon-bank"></i> Швидко Грошi</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="comments-slider__item">
+                    <div class="comments-slider__header">
+                      <div class="col-auto">
+                        <div class="comments-slider__date"><i class="icon-clock"></i> 24.05.2020</div>
+                      </div>
+                      <div class="col-auto ml-auto">
+                        <div class="rating__num">1 из 5</div>
+                        <ul class="rating">
+                          <li class="rating__item rating__item--active"><i class="icon-star"></i></li>
+                          <li class="rating__item"><i class="icon-star"></i></li>
+                          <li class="rating__item"><i class="icon-star"></i></li>
+                          <li class="rating__item"><i class="icon-star"></i></li>
+                          <li class="rating__item"><i class="icon-star"></i></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <h3 class="comments-slider__title">Доверяю этому банку</h3>
+                    <p>Когда получен  заявке на кредит, остается прийти отделени чтобы предоставить оригиналы документов.</p>
+                    <p>Вы можете сразу перейти на официал банка, чтобы посмотреть, каким условиям должен соответствовать кредит ополучатель.</p>
+                    <div class="comments-slider__footer">
+                      <ul class="comments-slider__info">
+                        <li class="comments-slider__info-item"><i class="icon-man"></i> Федор Коваленко</li>
+                        <li class="comments-slider__info-item"><i class="icon-place"></i> Киев</li>
+                        <li class="comments-slider__info-item"><i class="icon-bank"></i> Швидко Грошi</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center"><a class="btn-more" href="">Последние отзывы о банках</a></div>
+              </div>
+            </div>
+            <div class="container-a__aside">
+              <div class="bn-block bn-block--mt"><a href=""><img src="{{ url_for('static', filename='img/pic-9.png') }}" alt=""></a></div>
+              <div class="subscription subscription--mt-sm">
+                <h3 class="subscription__title">Подпишись и узнай последние новости и акции</h3>
+                <div class="form-row">
+                  <input class="form-row__input" type="text" placeholder="Имя и фамилия">
+                </div>
+                <div class="form-row">
+                  <input class="form-row__input" type="text" placeholder="Email">
+                </div>
+                <div class="form-row form-row--checkbox">
+                  <label class="checkbox">
+                    <div class="checkbox__inner">
+                      <input class="checkbox__input" type="checkbox" checked="">
+                      <div class="checkbox__cont"><i class="icon-check"></i></div>
+                    </div>
+                  </label>
+                  <div class="col">
+                    <p>
+                      Даю согласиен на<a class="link-to" href="">оброботку персональных данных</a></p>
+                  </div>
+                </div>
+                <div class="text-center"><a class="btn btn--large btn--green" href="">Подписаться</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="news-w">
+          <div class="main-container">
+            <h3 class="category-title">Новости микрофинансовых организаций</h3>
+            <ul class="news-w__list">
+              <li class="news-w__list-item"><a class="news-w__list-inner" href="{{ url_for('new', id=1) }}">
+                  <div class="news-w__list-img" style="background-image:url('static/img/pic-28.png')"></div>
+                  <div class="news-w__list-cont">
+                    <div class="news-w__list-name">Колектори ответілі тем, кто просіт обнуліть кредіт</div>
+                    <div class="news-w__list-date">24.04.2020</div>
+                  </div></a></li>
+              <li class="news-w__list-item"><a class="news-w__list-inner" href="{{ url_for('new', id=1) }}">
+                  <div class="news-w__list-img" style="background-image:url('static/img/pic-28.png')"></div>
+                  <div class="news-w__list-cont">
+                    <div class="news-w__list-name">Колектори ответілі тем, кто просіт обнуліть кредіт</div>
+                    <div class="news-w__list-date">24.04.2020</div>
+                  </div></a></li>
+              <li class="news-w__list-item"><a class="news-w__list-inner" href="{{ url_for('new', id=1) }}">
+                  <div class="news-w__list-img" style="background-image:url('static/img/pic-28.png')"></div>
+                  <div class="news-w__list-cont">
+                    <div class="news-w__list-name">Колектори ответілі тем, кто просіт обнуліть кредіт</div>
+                    <div class="news-w__list-date">24.04.2020</div>
+                  </div></a></li>
+            </ul>
+            <div class="text-center"><a class="btn-more" href="{{ url_for('news') }}">Смотреть все новости</a></div>
+          </div>
+        </div>
+        <div class="feedback">
+          <div class="main-container">
+            <h3 class="feedback__title">Подписывайтесь на нашу рассылку</h3>
+            <h4 class="feedback__sub-title">Будьте в курсе последних новостей!</h4>
+            <div class="feedback__form">
+              <input class="feedback__input" type="email" placeholder="Email *"><a class="btn btn--green feedback__form-btn" href="">Подписаться</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-cont">
+        <div class="main-container">
+          <h2>Взять займ под проценты</h2>
+          <p>В 2020 году получить деньги можно без банка. Подобную услугу предлагают микрофинансовые организации РФ.</p>
+          <p>Сегодня их огромное количество есть в каждом городе. Благодаря конкуренции и желанию привлечь клиентов появляется возможность найти предложения с более выгодными процентными ставками и лояльными условиями.</p>
+          <div class="text-center"><a class="link-to" href="">Топ онлайн-займов</a></div>
+          <h2>Условия денежных займов</h2>
+          <p>Оформить займ физическим лицам по всей России можно на небольшую сумму. По мере получения положительного опыта взаимодействия с МФО этот параметр может увеличиваться. Клиенты на момент получения денег не может быть меньше 18 лет, некоторые компании ограничивают верхний предел 65 годами.</p>
+          <p>Взять деньги в займ можно с возможностью выбора наиболее подходящего способа погашения:</p>
+          <ul>
+            <li>наличными в отделении;</li>
+            <li>банковской картой;</li>
+            <li>лектронными платежными системами;</li>
+            <li>терминалами самообслуживания.</li>
+          </ul>
+          <p>Чтобы подобрать выгодный вариант и оценить свои шансы на погашение, воспользуйтесь калькулятором процентов по займу. С его помощью вы узнаете полную сумму переплаты вместе с возможными штрафами.</p>
+          <h2>Какие виды займов бывают?</h2>
+          <p>Получить займ можно:</p>
+          <ol>
+            <li>На банковскую карту. Такая форма пользуется популярностью, поскольку дает возможность стать обладателем необходимой суммы без посещения филиала. Деньги перечисляются на указанный банковский счет.</li>
+            <li>На номер телефона. Особенность предложений – небольшие суммы к выдаче. Не все операторы поддерживают услугу, поэтому перед выбором варианта следует уточнить информацию.</li>
+            <li>На электронный кошелек (займ на Киви, или займ на Яндекс.Деньги, или другой электронный кошелек). Позволяет произвести оформление денежных займов без личной встречи с менеджером МФО, но предполагает довольно высокие комиссии при необходимости снятия средств.</li>
+            <li>Наличными. Получить деньги придется после посещения отделения. Можно получить и специальную пластиковую карту с возможностью снятия денег через терминалы самообслуживания.</li>
+          </ol>
+          <h2>Чем удобны микрозаймы?</h2>
+          <p>Существует огромный список предложений, позволяющих взять деньги в займ в день обращения. Отличаются предложения:</p>
+          <ul>
+            <li>быстрыми сроками рассмотрения заявки;</li>
+            <li>возможностью оформления практически любому человеку;</li>
+            <li>минимальными требованиями к физическим лицам.</li>
+          </ul>
+          <h2>Какие документы нужны?</h2>
+          <p>Оформление процентного займа обычно проходит только по паспорту. Данные можно указать в онлайн-заявке на займ, приложив его скан.</p>
+          <p>Если требуется крупная сумма, могут предложить предоставить и второй документ. Это может быть водительское удостоверение, студенческий билет, СНИЛС. Микрофинансовые оганизации не предполагают проверку кредитной истории или справок о доходах.</p>
+        </div>
+      </div>
+{% endblock %}
+{% block maincontainer %}
+<div class="main-container">
+    <div class="footer-bn"><a href=""><img src="{{ url_for('static',filename='img/pic-22.png') }}" alt=""></a></div>
+</div>
+{% endblock %}

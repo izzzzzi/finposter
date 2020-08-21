@@ -1,0 +1,548 @@
+{% extends "base.html" %}
+
+{% block header %}
+<header class="header">
+    <div class="header__top">
+        <div class="main-container flex-wrap">
+            <div class="col-auto"><a class="header__logo" href="{{ url_for('index') }}">
+                <!--span.header__logo-img-->
+                <!--span.header__logo-text Finposter--></a></div>
+            <div class="col-auto ml-auto">
+                <ul class="header__nav">
+                    <li class="header__nav-item"><a class="header__nav-link" href="">Лучшие курсы</a></li>
+                    <li class="header__nav-item"><a class="header__nav-link" href="">Криптовалюты</a></li>
+                    <li class="header__nav-item"><a class="header__nav-link" href="{{ url_for('news') }}">Новости</a>
+                    </li>
+                    <li class="header__nav-item"><a class="header__nav-link" href="">Отделения и банкоматы</a></li>
+                    <li class="header__nav-item"><a class="header__nav-link" href="">Контакты</a></li>
+                </ul>
+                <ul class="header__lang">
+                    <li class="header__lang-item"><a class="header__lang-link" href="">UA</a></li>
+                    <li class="header__lang-item"><a class="header__lang-link" href="">RU</a></li>
+                </ul>
+                <a class="btn-menu" href=""><span></span><span></span><span></span></a>
+                <div class="header__search">
+                    <button class="header__search-btn"><i class="icon-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="currency">
+        <div class="main-container">
+            <div class="currency__cont">
+                <div class="currency__item">
+                    <div class="currency__head">
+                        <h3 class="currency__name"><a href="{{ url_for('currency_rates') }}">Курсы валют</a></h3>
+                        <p class="currency__date">на 28.04.2020</p>
+                    </div>
+                    <div class="currency__inner">
+                        <table class="currency-s-table">
+                            <tr>
+                                <td>
+                                    <div class="currency-s-table__name">USD<span>НБУ</span></div>
+                                </td>
+                                <td>28.20 / 28.75</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="currency-s-table__name">EUR<span>НБУ</span></div>
+                                </td>
+                                <td>31.25 / 31.05</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="currency__item">
+                    <div class="currency__head">
+                        <h3 class="currency__name"><a href="">Курсы криптовалют</a></h3>
+                        <p class="currency__date">на 28.04.2020</p>
+                    </div>
+                    <div class="currency__inner">
+                        <table class="currency-s-table">
+                            <tr>
+                                <td>
+                                    <div class="currency-s-table__name">Bitcoin</div>
+                                </td>
+                                <td><i class="icon-arrow-up"></i> 7547.04</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="currency-s-table__name">Etherium</div>
+                                </td>
+                                <td><i class="icon-arrow-down"></i> 127.04</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="currency__item">
+                    <div class="currency__head">
+                        <h3 class="currency__name"><a href="">Курс нефти</a></h3>
+                        <p class="currency__date">на 28.04.2020</p>
+                    </div>
+                    <div class="currency__inner">
+                        <table class="currency-s-table">
+                            <tr>
+                                <td>
+                                    <div class="currency-s-table__name">Brent</div>
+                                </td>
+                                <td>19.99</td>
+                                <td class="currency-s-table__down">-8,68%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="currency-s-table__name">Золото</div>
+                                </td>
+                                <td>1435.34</td>
+                                <td class="currency-s-table__up">+0,87%</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header__cont"><a class="header__menu-close" href=""><i class="icon-close"></i></a>
+        <div class="main-container">
+            <ul class="header__nav">
+                <li class="header__nav-item"><a class="header__nav-link" href="">Лучшие курсы</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="">Криптовалюты</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="{{ url_for('news') }}">Новости</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="">Отделения и банкоматы</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="">Контакты</a></li>
+            </ul>
+            <ul class="header-menu">
+                <li class="header-menu__item"><a class="header-menu__link" href="" data-drop="#menu-drop-credit">КРЕДИТЫ<i
+                        class="icon-angle-down header-menu__link--icon"></i></a></li>
+                <li class="header-menu__item"><a class="header-menu__link" href="" data-drop="#menu-drop-loan">ЗАЙМЫ<i
+                        class="icon-angle-down header-menu__link--icon"></i></a></li>
+                <li class="header-menu__item"><a class="header-menu__link" href="" data-drop="#menu-drop-cards">КАРТЫ<i
+                        class="icon-angle-down header-menu__link--icon"></i></a></li>
+                <li class="header-menu__item"><a class="header-menu__link" href="" data-drop="#menu-drop-banks">БАНКИ<i
+                        class="icon-angle-down header-menu__link--icon"></i></a></li>
+                <li class="header-menu__item"><a class="header-menu__link" href=""
+                                                 data-drop="#menu-drop-exchange-rates">КУРСЫ ВАЛЮТ<i
+                        class="icon-angle-down header-menu__link--icon"></i></a></li>
+                <li class="header-menu__item"><a class="header-menu__link" href="" data-drop="#menu-drop-useful">ЕЩЕ<i
+                        class="icon-angle-down header-menu__link--icon"></i></a></li>
+            </ul>
+        </div>
+        <div class="menu-drop" id="menu-drop-loan"><a class="menu-drop__back" href=""><i class="icon-angle-left"></i>
+            Назад</a>
+            <div class="main-container">
+                <div class="menu-drop__inner">
+                    <div class="menu-drop__head">
+                        <div class="menu-drop__name">ЗАЙМЫ</div>
+                        <p class="menu-drop__p-info">Более 40 займов от 100 МФО</p>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/loan.svg')}}"
+                                                          alt="">
+                            Микрозаймы</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">Беспроцентный</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">Без справок</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">Наличными</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">В банке</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">На карту</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/bank.svg')}}"
+                                                          alt="">
+                            МФО</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">Moneyveo</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">ШвидкоГрошi</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('loans') }}">Ссloan</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-drop" id="menu-drop-credit"><a class="menu-drop__back" href=""><i class="icon-angle-left"></i>
+            Назад</a>
+            <div class="main-container">
+                <div class="menu-drop__inner">
+                    <div class="menu-drop__head">
+                        <div class="menu-drop__name">КРЕДИТЫ</div>
+                        <p class="menu-drop__p-info">Более 126 кредитов в 30 банках Украины</p>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/money.svg')}}"
+                                                          alt="">
+                            Потребительский</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">подбоп кредита</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">без поручителей</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">наличными</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">без справок</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/bank.svg')}}"
+                                                          alt="">
+                            Банки</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">подбоп кредита</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">без поручителей</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">наличными</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit') }}">без справок</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-drop" id="menu-drop-cards"><a class="menu-drop__back" href=""><i class="icon-angle-left"></i>
+            Назад</a>
+            <div class="main-container">
+                <div class="menu-drop__inner">
+                    <div class="menu-drop__head">
+                        <div class="menu-drop__name">КАРТЫ</div>
+                        <p class="menu-drop__p-info">Более 150 карт от 30 банков</p>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/credit-card.svg')}}"
+                                                          alt=""> Кредитные карты</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit_cards') }}">кэшбек</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit_cards') }}">бонусы</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit_cards') }}">процент на
+                                остаток</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('credit_cards') }}">снятие наличных без
+                                процентов</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/debit-card.svg')}}"
+                                                          alt=""> Дебетовые карты</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('debit_cards') }}">кэшбек</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('debit_cards') }}">бесплатные</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('debit_cards') }}">процент на
+                                остаток</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('debit_cards') }}">visa</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('debit_cards') }}">mastercard</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-drop" id="menu-drop-banks"><a class="menu-drop__back" href=""><i class="icon-angle-left"></i>
+            Назад</a>
+            <div class="main-container">
+                <div class="menu-drop__inner">
+                    <div class="menu-drop__head">
+                        <div class="menu-drop__name">КАРТЫ</div>
+                        <p class="menu-drop__p-info">Более 150 карт от 30 банков</p>
+                    </div>
+                    <div class="col-1-3 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/bank.svg')}}"
+                                                          alt="">
+                            Лучшее Банки</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Приват Банк</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Альфа Банк</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">OTP Банк</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Райфайзен Банк</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-1-3 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/place.svg')}}"
+                                                          alt="">
+                            Адреса Банков</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Отделения</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Банкоматы и
+                                терминалы</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-1-3 menu-drop__item"><a class="menu-drop__title" href=""><img
+                            class="menu-drop__title-img" src="{{ url_for('static',filename='img/icons/chart.svg')}}"
+                            alt=""> Рейтинг Банков</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-drop" id="menu-drop-exchange-rates"><a class="menu-drop__back" href=""><i
+                class="icon-angle-left"></i> Назад</a>
+            <div class="main-container">
+                <div class="menu-drop__inner">
+                    <div class="menu-drop__head">
+                        <div class="menu-drop__name">КУРСЫ ВАЛЮТ</div>
+                        <p class="menu-drop__p-info">Самые свежие курсы валют</p>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/exchange-rate.svg')}}"
+                                                          alt=""> Лучшие курсы</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('currency_rates') }}">Курсы валют</a>
+                            </li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Курсы НБУ</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Курс доллара
+                                USD</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Курс евро EUR</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/cryptocurrency.svg')}}"
+                                                          alt=""> Криптовалюта</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Курс Bitcoin</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-drop" id="menu-drop-useful"><a class="menu-drop__back" href=""><i class="icon-angle-left"></i>
+            Назад</a>
+            <div class="main-container">
+                <div class="menu-drop__inner">
+                    <div class="menu-drop__head">
+                        <div class="menu-drop__name">ПОЛЕЗНОЕ</div>
+                        <p class="menu-drop__p-info">Новости, калькуляторы аналитика</p>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><i class="icon-lamp"></i> Статьи и новости</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="{{ url_for('news') }}">Новости</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Вопросы и
+                                ответы</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Отзывы о банках</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-1-2 menu-drop__item">
+                        <h3 class="menu-drop__title"><img class="menu-drop__title-img"
+                                                          src="{{ url_for('static',filename='img/icons/bank.svg')}}"
+                                                          alt="">
+                            Услуги</h3>
+                        <ul class="menu-drop__list">
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Перевод с карты на
+                                карту</a></li>
+                            <li class="menu-drop__list-item"><a class="menu-drop__list-link" href="">Калькулятор</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="page-welcome">
+    <div class="main-container">
+        <ul class="breadcrumbs">
+            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="{{ url_for('index') }}">Главная</a></li>
+            <li class="breadcrumbs__item breadcrumbs__item--line">/</li>
+            <li class="breadcrumbs__item">Новости</li>
+        </ul>
+        <h1 class="main-title">Новости<span> Украины</span></h1>
+        <div class="page-welcome__info">Последние новости</div>
+    </div>
+</div>
+<div class="main-container all-news">
+    <div class="container-a">
+        <div class="container-a__cont">
+            <div class="all-news__cont">
+                <ul class="tabs-list">
+                    <li class="tabs-list__item"><a class="tabs-list__link tabs-list__link--active" href="{{ url_for('news') }}">Все
+                        новости</a></li>
+                    <li class="tabs-list__item"><a class="tabs-list__link" href="">Банки</a></li>
+                    <li class="tabs-list__item"><a class="tabs-list__link" href="">Деньги</a></li>
+                    <li class="tabs-list__item"><a class="tabs-list__link" href="">Пресс-релизы</a></li>
+                    <li class="tabs-list__item"><a class="tabs-list__link" href="">Экономика и бизнесс</a></li>
+                </ul>
+                <ul class="news-list-m">
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                    <li class="news-list-m__item"><a class="news-list-m__inner" href="{{ url_for('new',id=1)}}"
+                                                     style="background-image: url('static/img/pic-21.png');">
+                        <div class="news-list-m__cont">
+                            <p class="news-list-m__date">24.06.2020, 07:33</p>
+                            <h3 class="news-list-m__title">Прогноз по валютам: как поведут себя доллар и евро после
+                                карантина</h3>
+                        </div>
+                    </a></li>
+                </ul>
+                <ul class="pagination">
+                    <li class="pagination__item"><a class="pagination__link" href=""><i class="icon-angle-left"></i></a>
+                    </li>
+                    <li class="pagination__item"><a class="pagination__link pagination__link--active" href="">1</a></li>
+                    <li class="pagination__item"><a class="pagination__link" href="">2</a></li>
+                    <li class="pagination__item"><a class="pagination__link" href="">3</a></li>
+                    <li class="pagination__item"><a class="pagination__link" href="">4</a></li>
+                    <li class="pagination__item"><a class="pagination__link" href="">5</a></li>
+                    <li class="pagination__item"><span class="pagination__item-dots">...</span></li>
+                    <li class="pagination__item"><a class="pagination__link" href="">10</a></li>
+                    <li class="pagination__item"><a class="pagination__link" href=""><i
+                            class="icon-angle-right"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container-a__aside">
+            <div class="bn-block"><a href=""><img src="{{ url_for('static',filename='img/pic-20.png') }}" alt=""></a></div>
+        </div>
+    </div>
+    {% endblock %}
+    {% block maincontainer %}
+    <div class="main-container">
+        <div class="footer-bn"><a href=""><img src="{{ url_for('static',filename='img/pic-22.png') }}" alt=""></a></div>
+    </div>
+    {% endblock %}
